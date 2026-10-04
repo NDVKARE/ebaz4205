@@ -1,0 +1,31 @@
+/ {
+    s2-reset {
+        /* EBAZ4205 S2: PS MIO20, connected to VCC when pressed. */
+        gpios = <&gpio0 20 0>; /* GPIO_ACTIVE_HIGH */
+    };
+    ibex_mbox: mailbox@43c00000 {
+        compatible = "ebaz4205,ibex-mailbox";
+        reg = <0x43c00000 0x1000>;
+        #mbox-cells = <1>;
+        clocks = <&clkc 16>; /* PS FCLK1 */
+    };
+    ibex_shmem: sram@43c01000 {
+        compatible = "arm,scmi-shmem";
+        reg = <0x43c01000 0x1000>;
+    };
+    firmware {
+        scmi {
+            status = "disabled"; /* Bind explicitly from ibexinit after console. */
+            compatible = "arm,scmi";
+            mboxes = <&ibex_mbox 0>;
+            mbox-names = "tx";
+            shmem = <&ibex_shmem>;
+            #address-cells = <1>;
+            #size-cells = <0>;
+        };
+    };
+};
+
+&gpio0 {
+    status = "okay";
+};

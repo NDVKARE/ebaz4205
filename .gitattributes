@@ -1,0 +1,25 @@
+# Keep Linux and tool scripts executable after checkout on Linux/WSL.
+*.sh   text eol=lf
+*.tcl  text eol=lf
+*.dtsi text eol=lf
+*.dts  text eol=lf
+*.patch text eol=lf
+Makefile text eol=lf
+
+# Source code uses stable LF endings across Windows and WSL.
+*.c    text eol=lf
+*.h    text eol=lf
+*.v    text eol=lf
+*.sv   text eol=lf
+*.vhd  text eol=lf
+*.ld   text eol=lf
+*.S    text eol=lf
+
+# Treat generated and media files as binary if they are force-added later.
+*.bin  binary
+*.BIN  binary
+*.bit  binary
+*.elf  binary
+*.png  binary
+*.jpg  binary
+*.pdf  binary

@@ -1,0 +1,48 @@
+--- a/common/cli_readline.c
++++ b/common/cli_readline.c
+@@ -91,6 +91,22 @@ static char hist_data[HIST_MAX][HIST_SIZ
+ #endif
+ static char *hist_list[HIST_MAX];
+ 
++/* EBAZ4205 commands shown by Up immediately after every boot. */
++static const char *const ebaz_default_history[] = {
++	"ibexinit",
++	"scmi info",
++	"pmu_gpio 0 on",
++	"pmu_gpio 0 off",
++	"pmu_clock rate",
++	"pmu_clock set 10",
++	"pmu_clock on",
++	"pmu_clock off",
++	"nand info",
++	"jtag_sd_update",
++};
++#define EBAZ_DEFAULT_HISTORY_COUNT \
++	(sizeof(ebaz_default_history) / sizeof(ebaz_default_history[0]))
++
+ #define add_idx_minus_one() ((hist_add_idx == 0) ? hist_max : hist_add_idx-1)
+ 
+ static void getcmd_putchars(int count, int ch)
+@@ -106,5 +122,7 @@ static int hist_init(void)
+ 	int i;
+ 
++	BUILD_BUG_ON(EBAZ_DEFAULT_HISTORY_COUNT > HIST_MAX);
++
+ #ifndef CONFIG_CMD_HISTORY_USE_CALLOC
+ 	for (i = 0; i < HIST_MAX; i++) {
+ 		hist_list[i] = hist_data[i];
+@@ -126,6 +144,14 @@ static int hist_init(void)
+ 	hist_cur = -1;
+ 	hist_num = 0;
+ 
++	for (i = 0; i < EBAZ_DEFAULT_HISTORY_COUNT; i++) {
++		strcpy(hist_list[hist_add_idx], ebaz_default_history[i]);
++		hist_add_idx++;
++		hist_num++;
++	}
++	hist_max = hist_add_idx;
++	printf("Loaded %u default commands into Up-arrow history\n", hist_num);
++
+ 	return 0;
+ }
+ 

@@ -1,0 +1,101 @@
+# Editors and operating-system metadata
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*~
+
+# Logs, reports, journals and temporary files
+*.log
+*.jou
+*.str
+*.tmp
+*.bak
+*.backup
+*.rpt
+*.pb
+*.wdb
+*.vcd
+webtalk*
+.Xil/
+
+# Compiled objects and packaged boot artifacts
+*.o
+*.d
+*.elf
+*.bin
+*.BIN
+*.bit
+*.dcp
+*.hdf
+*.hwdef
+*.xsa
+*.mcs
+*.prm
+*.zip
+*.rar
+*.html
+
+# Generated documentation binaries; Markdown sources remain tracked
+*.doc
+*.docx
+*.pdf
+doc/logs/
+
+# Runtime images copied from PetaLinux output
+images/
+
+# Downloaded host tools. Keep the setup/build scripts in tools/.
+tools/bootgen/
+tools/sv2v/
+
+# PetaLinux/Yocto downloaded layers and generated workspaces
+petalinux/components/
+petalinux/build/
+petalinux/images/
+petalinux/.petalinux/
+petalinux/.metadata/
+petalinux/project-spec/yocto-layer.log
+
+# Vivado generated project state and simulation output
+vivado/EBAZbase.cache/
+vivado/EBAZbase.gen/
+vivado/EBAZbase.hw/
+vivado/EBAZbase.ip_user_files/
+vivado/EBAZbase.runs/
+vivado/EBAZbase.sim/
+vivado/EBAZbase.srcs/**/ip/
+vivado/EBAZbase.srcs/**/ipshared/
+vivado/EBAZbase.srcs/**/sim/
+vivado/EBAZbase.srcs/**/synth/
+vivado/EBAZbase.srcs/**/hw_handoff/
+vivado/led6_2015/project/
+vivado/led6_2015/xsim.dir/
+
+# ibex_min generated build trees and downloaded upstream dependency
+vivado/ibex_min/project/
+vivado/ibex_min/vendor/
+vivado/ibex_min/sim_build/
+vivado/ibex_min/sim_gpio_build/
+vivado/ibex_min/sim_clock_rate_build/
+vivado/ibex_min/reset_test/
+vivado/ibex_min/recovery_*/
+vivado/ibex_min/fsbl_clock_check/
+vivado/ibex_min/fsbl_hw_input/
+vivado/ibex_min/fsbl_nand/
+vivado/ibex_min/fsbl_nand_final/
+
+# Generated firmware and synthesis intermediates
+vivado/ibex_min/firmware.map
+vivado/ibex_min/firmware.elf
+vivado/ibex_min/firmware.bin
+vivado/ibex_min/ibex_min_top_X99.v
+vivado/ibex_min/ps7_init.html
+
+# FSBL build products; source files and Makefiles remain tracked
+vivado/ibex_min/fsbl_new/ebaz_fsbl_bsp/
+vivado/ibex_min/fsbl_new/executable.elf
+vivado/ibex_min/fsbl_new/fsbl.bin
+
+# U-Boot build products copied back into the project
+vivado/ibex_min/uboot/u-boot-ibex.elf

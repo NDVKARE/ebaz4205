@@ -1,0 +1,6 @@
+ibex_boot_image:
+{
+    [bootloader] fsbl_new/executable.elf
+    ibex_min.bit
+    uboot/u-boot-ibex.elf
+}
