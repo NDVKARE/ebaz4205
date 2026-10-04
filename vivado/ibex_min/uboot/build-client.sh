@@ -1,17 +1,19 @@
 #!/usr/bin/env bash
 set -euo pipefail
 here=$(cd -- "$(dirname -- "$0")" && pwd)
-src=${1:-/home/vund19/ebaz-dev/u-boot}
+repo_root=$(cd -- "$here/../../.." && pwd)
+src=${1:-$repo_root/third_party/u-boot}
 export CROSS_COMPILE=arm-linux-gnueabihf-
 cd "$src"
-# Preserve existing console config; put new build output in out-ibex.
+# Start from the project defconfig and put generated files in out-ibex.
 mkdir -p out-ibex
-cp out/.config out-ibex/.config
+cp "$here/zynq_ebaz4205_defconfig" out-ibex/.config
 cp "$here/ibex-mbox.c" drivers/mailbox/ibex-mbox.c
 cp "$here/ibex-gpio.c" cmd/ibex-gpio.c
 cp "$here/s2-reset.c" cmd/s2-reset.c
 cp "$here/s2-reset-state.h" cmd/s2-reset-state.h
 cp "$here/jtag-sd-update.c" cmd/jtag-sd-update.c
+cp "$here/zynq-ebaz4205.dts" arch/arm/dts/zynq-ebaz4205.dts
 cp "$here/ibex-scmi.dtsi" arch/arm/dts/ibex-scmi.dtsi
 if ! grep -q 'ebaz_default_history' common/cli_readline.c; then
     patch --forward -p1 < "$here/cli-default-history.patch"
