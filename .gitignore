@@ -4,6 +4,7 @@
 .DS_Store
 Thumbs.db
 *~
+.~lock.*#
 
 # Logs, reports, journals and temporary files
 *.log
