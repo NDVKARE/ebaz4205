@@ -59,6 +59,21 @@ petalinux/.metadata/
 petalinux/project-spec/yocto-layer.log
 
 # Vivado generated project state and simulation output
+vivado/**/*.cache/
+vivado/**/*.gen/
+vivado/**/*.hw/
+vivado/**/*.ip_user_files/
+vivado/**/*.runs/
+vivado/**/*.sim/
+vivado/**/xsim.dir/
+vivado/**/.webtalk/
+vivado/**/usage_statistics_webtalk.*
+vivado/**/vivado_pid*.debug
+vivado/**/.directory
+vivado/**/*.bda
+vivado/**/*.bxml
+vivado/**/*.srcs/**/bd/*/ui/
+vivado/**/*.srcs/**/bd/*/*_ooc.xdc
 vivado/EBAZbase.cache/
 vivado/EBAZbase.gen/
 vivado/EBAZbase.hw/
@@ -79,21 +94,26 @@ vivado/ibex_min/vendor/
 vivado/ibex_min/sim_build/
 vivado/ibex_min/sim_gpio_build/
 vivado/ibex_min/sim_clock_rate_build/
+vivado/ibex_min/sim*_build/
 vivado/ibex_min/reset_test/
 vivado/ibex_min/recovery_*/
 vivado/ibex_min/fsbl_clock_check/
 vivado/ibex_min/fsbl_hw_input/
 vivado/ibex_min/fsbl_nand/
 vivado/ibex_min/fsbl_nand_final/
+vivado/ibex_min/fsbl_linux_scmi/
 
 # Generated firmware and synthesis intermediates
 vivado/ibex_min/firmware.map
 vivado/ibex_min/firmware.elf
 vivado/ibex_min/firmware.bin
+vivado/ibex_min/firmware.hex
 vivado/ibex_min/ibex_min_top_X99.v
 vivado/ibex_min/ps7_init.html
 
 # FSBL build products; source files and Makefiles remain tracked
+vivado/ibex_min/fsbl_*/ebaz_fsbl_bsp/
+vivado/ibex_min/fsm_encoding.os
 vivado/ibex_min/fsbl_new/ebaz_fsbl_bsp/
 vivado/ibex_min/fsbl_new/executable.elf
 vivado/ibex_min/fsbl_new/fsbl.bin
